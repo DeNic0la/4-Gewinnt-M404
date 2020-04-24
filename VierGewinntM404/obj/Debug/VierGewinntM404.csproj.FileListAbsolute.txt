@@ -1,0 +1,11 @@
+C:\Users\vmadmin\source\repos\VierGewinntM404\VierGewinntM404\obj\Debug\VierGewinntM404.csprojAssemblyReference.cache
+C:\Users\vmadmin\source\repos\VierGewinntM404\VierGewinntM404\obj\Debug\VierGewinntM404.Form1.resources
+C:\Users\vmadmin\source\repos\VierGewinntM404\VierGewinntM404\obj\Debug\VierGewinntM404.Properties.Resources.resources
+C:\Users\vmadmin\source\repos\VierGewinntM404\VierGewinntM404\obj\Debug\VierGewinntM404.csproj.GenerateResource.cache
+C:\Users\vmadmin\source\repos\VierGewinntM404\VierGewinntM404\obj\Debug\VierGewinntM404.csproj.CoreCompileInputs.cache
+C:\Users\vmadmin\source\repos\VierGewinntM404\VierGewinntM404\bin\Debug\VierGewinntM404.exe.config
+C:\Users\vmadmin\source\repos\VierGewinntM404\VierGewinntM404\bin\Debug\VierGewinntM404.exe
+C:\Users\vmadmin\source\repos\VierGewinntM404\VierGewinntM404\bin\Debug\VierGewinntM404.pdb
+C:\Users\vmadmin\source\repos\VierGewinntM404\VierGewinntM404\obj\Debug\VierGewinntM404.exe
+C:\Users\vmadmin\source\repos\VierGewinntM404\VierGewinntM404\obj\Debug\VierGewinntM404.pdb
+C:\Users\vmadmin\source\repos\VierGewinntM404\VierGewinntM404\obj\Debug\VierGewinntM404.Form2.resources
