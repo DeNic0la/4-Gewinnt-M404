@@ -43,9 +43,20 @@ namespace VierGewinntM404
         public Form2(string PlayerOne, string PlayerTwo) // Form nimmt die Namen der 2 Spieler als Input
         {
             InitializeComponent();
-            Button[,] Field = { { btn1_1, btn1_2, btn1_3, btn1_4, btn1_5 }, { btn2_1, btn2_2, btn2_3, btn2_4, btn2_5 }, { btn3_1, btn3_2, btn3_3, btn3_4, btn3_5 }, { btn4_1, btn4_2, btn4_3, btn4_4, btn4_5 }, { btn5_1, btn5_2, btn5_3, btn5_4, btn5_5 }, { btn6_1, btn6_2, btn6_3, btn6_4, btn6_5 }, { btn7_1, btn7_2, btn7_3, btn7_4, btn7_5 }, { btn8_1, btn8_2, btn8_3, btn8_4, btn8_5 }, { btn9_1, btn9_2, btn9_3, btn9_4, btn9_5 }, { btn10_1, btn10_2, btn10_3, btn10_4, btn10_5 } };
-            /* fülle 2D Button Array mit Buttons*/
+            Button[,] Field = { 
+                { btn1_1, btn1_2, btn1_3, btn1_4, btn1_5 }, 
+                { btn2_1, btn2_2, btn2_3, btn2_4, btn2_5 }, 
+                { btn3_1, btn3_2, btn3_3, btn3_4, btn3_5 }, 
+                { btn4_1, btn4_2, btn4_3, btn4_4, btn4_5 }, 
+                { btn5_1, btn5_2, btn5_3, btn5_4, btn5_5 }, 
+                { btn6_1, btn6_2, btn6_3, btn6_4, btn6_5 }, 
+                { btn7_1, btn7_2, btn7_3, btn7_4, btn7_5 }, 
+                { btn8_1, btn8_2, btn8_3, btn8_4, btn8_5 }, 
+                { btn9_1, btn9_2, btn9_3, btn9_4, btn9_5 }, 
+                { btn10_1, btn10_2, btn10_3, btn10_4, btn10_5 } 
+            };
 
+            /* fülle 2D Button Array mit Buttons*/
             for (int R = 0; R < 5; R++)
             {
                 Row1[R] = Field[0, R];
@@ -133,26 +144,20 @@ namespace VierGewinntM404
         public Color GetColorOfCurrentPlayer()
         {
             if (Turn == pEins.Name)
-            {
                 return pEins.Color;
-            }
             else
-            {
                 return pZwei.Color;
-            }
         }
 
-        //Diese Funktion setzt den Spieler an den zug welcher zuvor nicht am zug war. In dieser Funktion wird zugleich auch überprüft ob ein spieler gewonnen hat
+        //Diese Funktion setzt den Spieler an den zug welcher zuvor nicht am zug war. 
+        // In dieser Funktion wird zugleich auch überprüft ob ein spieler gewonnen hat
         public void switchTurn()
         {
             if (Turn == pEins.Name)
-            {
                 Turn = pZwei.Name;
-            }
             else
-            {
                 Turn = pEins.Name;
-            }
+
             lblTurn.Text = "Spieler: " + Turn + " ist am Zug";
 
             string tfw = TestForWin();
@@ -160,22 +165,16 @@ namespace VierGewinntM404
             {
                 var arguments = DialogResult.No;
                 if (tfw == "U1")
-                {
-                    arguments = MessageBox.Show("Es Steht Unentschiden da das Feld Voll ist. \nNochmals Spielen ?", "Spiel Fertig", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                }
+                    arguments = MessageBox.Show("Es Steht Unentschiden da das Feld Voll ist. \nNochmals Spielen ?", 
+                                                "Spiel Fertig", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 else
-                {
-                    arguments = MessageBox.Show("Der Spieler " + tfw + " hat Gewonnen! \nNochmals Spielen ?", "Spiel Gewonnen", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    arguments = MessageBox.Show("Der Spieler " + tfw + " hat Gewonnen! \nNochmals Spielen ?", 
+                                                "Spiel Gewonnen", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-                }
                 if (arguments == DialogResult.Yes)
-                {
-                    ClearField();                    
-                }
+                    ClearField();
                 else
-                {
                     System.Windows.Forms.Application.Exit();
-                }
             }
         }
         //Setzt in der Ausgewählten reihe einen Stein der ausgewählten farbe an der tiefst möglichen position
@@ -205,82 +204,59 @@ namespace VierGewinntM404
                     {
                         row[Pos - 1].BackColor = Color.White;
                     }
-                    catch (Exception ex)
-                    {
-                        //Console.WriteLine(ex);
-                    }
+                    catch (Exception ex) {}
                     //Thread.Sleep(1000);
                     goDown(row, toSet, Pos + 1);
                 }
             }
-            catch(Exception ex)
-            {
-                
-            }
+            catch(Exception ex) { }
         }
 
         /*Diese funktionen nehmen die eingabe der Buttons entgegen*/
         public void row1Click(object sender, EventArgs e)
         {
-            if (SetStoneInRow(Row1, GetColorOfCurrentPlayer())){
+            if (SetStoneInRow(Row1, GetColorOfCurrentPlayer()))
                 switchTurn();
-            }
         }
         public void row2Click(object sender, EventArgs e)
         {
             if (SetStoneInRow(Row2, GetColorOfCurrentPlayer()))
-            {
                 switchTurn();
-            }
         }
         public void row3Click(object sender, EventArgs e)
         {
             if (SetStoneInRow(Row3, GetColorOfCurrentPlayer()))
-            {
                 switchTurn();
-            }
         }
         public void row4Click(object sender, EventArgs e)
         {
             if (SetStoneInRow(Row4, GetColorOfCurrentPlayer()))
-            {
                 switchTurn();
-            }
         }
         public void row5Click(object sender, EventArgs e)
         {
             if (SetStoneInRow(Row5, GetColorOfCurrentPlayer()))
-            {
                 switchTurn();
-            }
         }
         public void row6Click(object sender, EventArgs e)
         {
             if (SetStoneInRow(Row6, GetColorOfCurrentPlayer()))
-            {
                 switchTurn();
-            }
         }
         public void row7Click(object sender, EventArgs e)
         {
             if (SetStoneInRow(Row7, GetColorOfCurrentPlayer()))
-            {
                 switchTurn();
-            }
         }
         public void row8Click(object sender, EventArgs e)
         {
             if (SetStoneInRow(Row8, GetColorOfCurrentPlayer()))
-            {
                 switchTurn();
-            }
         }
         public void row9Click(object sender, EventArgs e)
         {
             if (SetStoneInRow(Row9, GetColorOfCurrentPlayer()))
-            {
                 switchTurn();
-            }
         }
         public void row10Click(object sender, EventArgs e)
         {
@@ -303,29 +279,24 @@ namespace VierGewinntM404
                     else if (TestRows(i, B, PossibleWinner))
                     {
                         if (pEins.Color == PossibleWinner)
-                        {
                             return pEins.Name;
-                        }
                         else
-                        {
                             return pZwei.Name;
-                        }
                     }
                 }
             }
-            if (fieldIsFull) { return "U1"; } // Unentschiden
+            if (fieldIsFull) return "U1"; // Unentschiden
             return "N0";
         }
-        // Nimmt kordinaten eines Feldes und eine Spielerfarbe und überprüft ob diese dieser Stein teil einer reihe ist, es werden nicht alle möglichkeiten überprüft da diese Funktion für jedes feld einmal aufgerufen wurd
+        // Nimmt kordinaten eines Feldes und eine Spielerfarbe und überprüft ob diese dieser Stein teil einer reihe ist, 
+        // es werden nicht alle möglichkeiten überprüft da diese Funktion für jedes feld einmal aufgerufen wurd
         public bool TestRows(int A, int B, Color toTestFor)
         {
             //Test for stones underneath
             try
             {
                 if(Feld[A,B+1].BackColor == toTestFor && Feld[A, B + 2].BackColor == toTestFor&& Feld[A, B + 3].BackColor == toTestFor)
-                {
                     return true;
-                }
             }
             catch (Exception ex) { }
 
@@ -333,9 +304,7 @@ namespace VierGewinntM404
             try
             {
                 if (Feld[A+1, B].BackColor == toTestFor && Feld[A+2, B].BackColor == toTestFor && Feld[A+3, B].BackColor == toTestFor)
-                {
                     return true;
-                }
             }
             catch (Exception ex) { }
 
@@ -343,9 +312,7 @@ namespace VierGewinntM404
             try
             {
                 if (Feld[A+1, B + 1].BackColor == toTestFor && Feld[A+2, B + 2].BackColor == toTestFor && Feld[A+2, B + 3].BackColor == toTestFor)
-                {
                     return true;
-                }
             }
             catch (Exception ex) { }
 
@@ -353,9 +320,7 @@ namespace VierGewinntM404
             try
             {
                 if (Feld[A-1, B + 1].BackColor == toTestFor && Feld[A-2, B + 2].BackColor == toTestFor && Feld[A-3, B + 3].BackColor == toTestFor)
-                {
                     return true;
-                }
             }
             catch (Exception ex) { }
             return false;
@@ -413,11 +378,15 @@ namespace VierGewinntM404
                         row10Click(sender, e);
                         break;
                     default:
-                        MessageBox.Show("Geben sie eine Gültig, Geben sie eine Gültige zahl ein oder klicken sie auf eine Reihe", "Fehlerhafte eingabe", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Geben sie eine Gültig, Geben sie eine Gültige zahl ein oder klicken sie auf eine Reihe", 
+                                        "Fehlerhafte eingabe", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         break;
                 }
             }
-            catch (Exception ex) { MessageBox.Show("Geben sie eine Gültig, Geben sie eine Gültige zahl ein oder klicken sie auf eine Reihe", "Fehlerhafte eingabe", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+            catch (Exception ex) { 
+                MessageBox.Show("Geben sie eine Gültig, Geben sie eine Gültige zahl ein oder klicken sie auf eine Reihe", 
+                                "Fehlerhafte eingabe", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
