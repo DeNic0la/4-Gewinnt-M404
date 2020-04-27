@@ -21,23 +21,19 @@ namespace VierGewinntM404
 
         private void BtnStartGame_Click(object sender, EventArgs e)
         {
-            // Entgegegenname der Spielerstrings
-            String PlayerOne = txtEingabeSpielerEins.Text;
-            String PlayerTwo = txtSpielerEingabeZwei.Text;
-            
-
             // Überprüfung der Eingabe
             try
             {
-                TestInputs(PlayerOne,PlayerTwo);
+                TestInputs(txtEingabeSpielerEins.Text, txtSpielerEingabeZwei.Text);
             }
             catch(Exception ex)
             {
-                MessageBox.Show("Die eingen sind ungültig: " + ex, "Ungpltige eingabe", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Die eingen sind ungültig: " + ex, 
+                                "Ungültige eingabe", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             if (ValidInputs)
             {
-                Form2 Game = new Form2(PlayerOne, PlayerTwo);
+                Form2 Game = new Form2(txtEingabeSpielerEins.Text, txtSpielerEingabeZwei.Text);
                 Game.Show();
                 this.WindowState = FormWindowState.Minimized;
 
